@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <h1 class="text-center text-success">Crop Yield Prediction Per Country</h1>
+    <div class="container mt-4 my-4" style="background:#000000;color:white;border-radius:20px;width:40%;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
+        <h1 class="text-center text-success">Crop Features Here</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="number" class="form-control" name="Year" step="any">
+            </div>
+            <div class="form-group">
+                <label for="average_rain_fall_mm_per_year">average_rain_fall_mm_per_year</label>
+                <input type="number" class="form-control" name="average_rain_fall_mm_per_year" step="any">
+            </div>
+            
+            <div class="form-group">
+                <label for="pesticides_tonnes">pesticides_tonnes</label>
+                <input type="number" class="form-control" name="pesticides_tonnes" step="any">
+            </div>
+           
+            <div class="form-group">
+                <label for="avg_temp">avg_temp</label>
+                <input type="number" class="form-control" name="avg_temp" step="any">
+            </div>
+           
+            <div class="form-group">
+                <label for="Area">Area</label>
+                <input type="text" class="form-control" name="Area" step="any">
+            </div>
+            <div class="form-group">
+                <label for="Item">Item</label>
+                <input type="text" class="form-control" name="Item" step="any">
+            </div> 
+            <button type="submit" class="btn btn-danger bgn-lg mt-4">Predict</button>
+            
+        </form>
+        {% if predicted_value %} 
+        <h1 class="text-center text-danger">
+            Predicted Yield Productions:<br>
+            {{predicted_value}}
+        </h1>
+        {% endif %} 
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
